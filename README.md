@@ -1,29 +1,31 @@
-# Библиотека Converter: Конвертация DOCX в PDF
+# DOCX to PDF Converter
 
-Простая библиотека для преобразования документов DOCX в формат PDF с использованием LibreOffice.
+A simple library for converting DOCX documents to PDF format using LibreOffice.
 
-## Предварительные требования
+## Prerequisites
 
 1. **LibreOffice**  
-   Установите последнюю версию LibreOffice:  
+   Install the latest version of LibreOffice:  
    [https://www.libreoffice.org/download](https://www.libreoffice.org/download)
 
 2. **.NET 8.0**  
-   Убедитесь, что установлена среда выполнения .NET 8.0:  
+   Ensure that the .NET 8.0 runtime is installed:  
    [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
 
-## Настройка
+## Configuration
 
-Перед использованием задайте параметры в коде приложения:
+Before using the library, configure the parameters in your application code:
 
 ```csharp
-// Укажите путь к исполняемому файлу LibreOffice
-Converter.LibreOfficePath = @"C:\Program Files\LibreOffice\program\soffice.exe";
+// Specify the path to the LibreOffice executable
+Converter.LibreOfficePath = @"/usr/bin/soffice"; // C:\Program Files\LibreOffice\program\soffice.exe
 
-// Опционально: установите таймаут в миллисекундах (по умолчанию 30000 мс)
+// Optional: set the timeout in milliseconds (default is 30000 ms)
 Converter.TimeOut = 60000;
 ```
-Пример использования
+
+## Usage Example
+
 ```csharp
 using DocXToPDF;
 
@@ -34,7 +36,7 @@ namespace TestProject1
         [Fact]
         public void CreatePdfTest()
         {
-            Converter.LibreOfficePath = @"C:\Program Files\LibreOffice\program\soffice.exe";
+            Converter.LibreOfficePath = @"/usr/bin/soffice"; // C:\Program Files\LibreOffice\program\soffice.exe
             Converter.TimeOut = 60000;
             string docxWay = @"FileToBeConverted.docx";
             string pdfWay = @"D:\ConvertedFile.pdf";
@@ -48,5 +50,4 @@ namespace TestProject1
         }
     }
 }
-
 ```
